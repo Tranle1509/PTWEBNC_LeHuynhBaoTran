@@ -1,0 +1,60 @@
+<div style="padding: 16px;">
+  <h2>Exercise 13: Json Array Model – Product Event (*)</h2>
+
+  <!-- Màn hình danh sách sản phẩm (khi chưa chọn chi tiết) -->
+  <div *ngIf="!selectedProduct">
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; min-width: 500px; text-align: center;">
+      <thead>
+        <tr style="background-color: #f2f2f2;">
+          <th>Product ID</th>
+          <th>Product Name</th>
+          <th>UnitPrice</th>
+          <th>Picture</th>
+          <th>#</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of products">
+          <td>{{ p.ProductId }}</td>
+          <td>{{ p.ProductName }}</td>
+          <td>{{ p.Price }}</td>
+          <td>
+            <img [src]="p.Image" width="60" height="60" style="object-fit: contain;" [alt]="p.ProductName" />
+          </td>
+          <td>
+            <a style="cursor: pointer; color: blue; text-decoration: underline;" (click)="viewDetail(p)" title="Click here to view detail">
+              Details
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Màn hình chi tiết sản phẩm (khi click vào Details) -->
+  <div *ngIf="selectedProduct">
+    <button (click)="goBack()" style="margin-bottom: 12px; padding: 6px 14px; cursor: pointer; font-weight: bold;">
+      Go Back
+    </button>
+
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; min-width: 320px;">
+      <tr>
+        <td style="font-weight: bold; width: 80px;">ID:</td>
+        <td>{{ selectedProduct.ProductId }}</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">Name:</td>
+        <td>{{ selectedProduct.ProductName }}</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">Price:</td>
+        <td>{{ selectedProduct.Price }}</td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center; padding: 15px;">
+          <img [src]="selectedProduct.Image" width="120" height="120" style="object-fit: contain;" [alt]="selectedProduct.ProductName" />
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
