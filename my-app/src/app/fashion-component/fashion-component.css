@@ -1,0 +1,23 @@
+:host { display: block; background: #f7f5f0; min-height: 100vh; color: #24211f; }
+.fashion-page { max-width: 1180px; margin: auto; padding: 3rem 1.5rem 5rem; }
+.fashion-hero { display: flex; justify-content: space-between; align-items: end; padding: 3rem 0 2.5rem; }
+.eyebrow, .section-heading span, .style { color: #8b5e3c; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+h1 { font: 500 clamp(2.8rem, 7vw, 6rem)/.95 Georgia, serif; margin: .7rem 0 1rem; }
+h1 em { color: #b06b4c; font-style: italic; }
+.fashion-hero p:not(.eyebrow) { color: #756d67; max-width: 28rem; line-height: 1.6; }
+.hero-symbol { color: #b06b4c; font-size: 4rem; }
+.search-bar { display: flex; gap: .75rem; margin-bottom: 3.5rem; }
+.search-bar input { background: white; border: 1px solid #ded8d0; flex: 1; padding: 1rem 1.2rem; font: inherit; }
+.search-bar button { background: #29231f; border: 0; color: white; padding: 0 1.5rem; font-weight: 700; }
+.section-heading { align-items: center; border-bottom: 1px solid #ddd6cf; display: flex; justify-content: space-between; margin-bottom: 1.5rem; padding-bottom: .8rem; }
+.section-heading strong { font: 1.6rem Georgia, serif; }
+.fashion-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.fashion-card { background: white; color: inherit; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+.fashion-card:hover { box-shadow: 0 1rem 2rem #493b2b18; transform: translateY(-4px); }
+.image-wrap { aspect-ratio: 4 / 5; overflow: hidden; background: #ece7e0; }
+.image-wrap img { height: 100%; object-fit: cover; width: 100%; }
+.card-copy { padding: 1.2rem; }
+.card-copy h2 { font: 1.5rem Georgia, serif; margin: .5rem 0; }
+.card-copy p { color: #756d67; line-height: 1.5; max-height: 3em; overflow: hidden; }
+.view-link { color: #9c5e40; font-weight: 700; }
+.message.error, .error { color: #a33f35; }.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }

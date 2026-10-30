@@ -1,0 +1,74 @@
+.book-list {
+  width: min(100% - 2rem, 43rem);
+  margin: 0 auto;
+}
+
+.books-table {
+  width: 100%;
+  table-layout: auto;
+  border: 1px solid #a8a8a8;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  color: #1f2937;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+}
+
+.books-table th,
+.books-table td {
+  height: 3.5rem;
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.books-table th {
+  height: 2.2rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: #111827;
+  background: #ffffff;
+  font-weight: 400;
+}
+
+.book-id {
+  width: 3.8rem;
+}
+
+.book-name {
+  width: auto;
+  line-height: 1.25;
+}
+
+.book-price {
+  width: 3.5rem;
+  white-space: nowrap;
+}
+
+.book-image {
+  width: 3.5rem;
+  padding-right: 0.35rem;
+}
+
+.book-image img {
+  display: block;
+  width: 3.25rem;
+  height: 3.5rem;
+  object-fit: cover;
+}
+
+.error {
+  margin: 0 0 0.75rem;
+  color: #b91c1c;
+}
+
+@media (max-width: 30rem) {
+  .book-list {
+    width: calc(100% - 1rem);
+  }
+
+  .books-table {
+    font-size: 0.9rem;
+  }
+}

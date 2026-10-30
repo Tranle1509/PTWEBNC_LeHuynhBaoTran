@@ -1,0 +1,94 @@
+<section class="search-page">
+  <header class="hero">
+    <div>
+      <p class="eyebrow">FASHION INTELLIGENCE</p>
+      <h1>Find your next <span>look</span></h1>
+      <p class="hero-copy">Search our collection by subject or detail and discover the closest styles.</p>
+    </div>
+    <div class="hero-mark" aria-hidden="true">✦</div>
+  </header>
+
+  <form class="search-panel" (submit)="$event.preventDefault(); search()">
+    <div class="query-field">
+      <label for="fashion-query">What are you looking for?</label>
+      <div class="query-input">
+        <span aria-hidden="true">⌕</span>
+        <input id="fashion-query" name="query" [(ngModel)]="query"
+               placeholder="Nhập mã 1-9 hoặc tên sản phẩm..." autocomplete="off">
+      </div>
+    </div>
+    <div class="control">
+      <label for="search-field">Search in</label>
+      <select id="search-field" name="field" [(ngModel)]="field" (ngModelChange)="onOptionChange()">
+        <option value="fashion_subject">Fashion subject</option>
+        <option value="fashion_detail">Fashion detail</option>
+      </select>
+    </div>
+    <div class="control">
+      <label for="search-limit">Show results</label>
+      <select id="search-limit" name="limit" [(ngModel)]="limit" (ngModelChange)="onOptionChange()">
+        <option [ngValue]="6">6 results</option>
+        <option [ngValue]="12">12 results</option>
+        <option [ngValue]="24">24 results</option>
+        <option [ngValue]="50">50 results</option>
+      </select>
+    </div>
+    <fieldset class="metric-control">
+      <legend>Similarity metric</legend>
+      <label [class.selected]="metric === 'cosine'">
+        <input type="radio" name="metric" value="cosine" [(ngModel)]="metric" (ngModelChange)="onOptionChange()"> Cosine
+      </label>
+      <label [class.selected]="metric === 'jaccard'">
+        <input type="radio" name="metric" value="jaccard" [(ngModel)]="metric" (ngModelChange)="onOptionChange()"> Jaccard
+      </label>
+    </fieldset>
+    <button class="search-button" type="submit">Search <span>→</span></button>
+  </form>
+  @if (!hasSearched() && results().length > 0) {
+    <div class="ready-codes" aria-label="Available Fashion codes from MongoDB">
+      <span>Available codes:</span>
+      @for (item of results(); track item.IdF) {
+        <button type="button" (click)="selectId(item.IdF)">#{{ item.IdF }}</button>
+      }
+    </div>
+  }
+
+  <div class="results-heading">
+    <div>
+      <p class="eyebrow">CURATED RESULTS</p>
+      <h2>{{ hasSearched() ? results().length + ' styles found' : results().length + ' styles to explore' }}</h2>
+    </div>
+    @if (hasSearched() && results().length > 0) {
+      <span class="sort-note">Sorted by {{ metric | titlecase }} similarity ↓</span>
+    }
+  </div>
+
+  @if (errorMessage()) {
+    <p class="message error">{{ errorMessage() }}</p>
+  } @else if (hasSearched() && results().length === 0) {
+    <p class="message">No matching styles found. Try a broader search term.</p>
+  } @else {
+    @if (!hasSearched()) {
+      <p class="browse-note">Browse the latest styles below, or search by subject/detail to rank them by similarity.</p>
+    }
+    <div class="results-grid">
+      @for (item of results(); track item._id) {
+        <article class="fashion-card" [ngClass]="scoreClass(item)">
+          <div class="image-wrap">
+            <img [src]="imageUrl(item)" [alt]="item.fashion_subject">
+            <span class="score-badge">{{ similarity(item) | number:'1.2-2' }}</span>
+          </div>
+          <div class="card-content">
+            <div class="card-topline">
+              <span class="item-id">MÃ #{{ item.IdF }}</span>
+              <span class="style">{{ item.style || 'Fashion' }}</span>
+            </div>
+            <h3>{{ item.fashion_subject }}</h3>
+            <p>{{ item.fashion_detail }}</p>
+            <a [routerLink]="['/fashion-detail', item.slug || item._id]">View details <span>↗</span></a>
+          </div>
+        </article>
+      }
+    </div>
+  }
+</section>

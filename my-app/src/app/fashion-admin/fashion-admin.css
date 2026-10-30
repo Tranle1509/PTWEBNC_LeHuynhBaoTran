@@ -1,0 +1,15 @@
+:host { display:block; min-height:calc(100vh - 5rem); background:linear-gradient(145deg,#fffaf6,#f3ece7); }
+.admin-page { max-width:1240px; margin:auto; padding:3rem 1.5rem 5rem; color:#29242b; font-family:Inter,ui-sans-serif,system-ui,sans-serif; }
+.admin-hero { display:flex; justify-content:space-between; align-items:end; gap:2rem; margin-bottom:2rem; }
+.eyebrow { margin:0 0 .55rem; color:#a45f38; font-size:.68rem; font-weight:900; letter-spacing:.2em; }
+h1,h2,h3,p { margin-top:0; } h1 { margin-bottom:.6rem; font:400 clamp(2.5rem,5vw,4.6rem)/.95 Georgia,serif; letter-spacing:-.05em; } h2 { margin:0; font:400 1.7rem Georgia,serif; } .admin-hero p:last-child { color:#746c72; }
+.admin-layout { display:grid; grid-template-columns:minmax(280px,.8fr) 1.2fr; gap:1.2rem; align-items:start; }
+.panel { padding:1.5rem; border:1px solid #fff; border-radius:20px; background:#ffffffc9; box-shadow:0 15px 40px #482a2514; }
+.panel-heading { display:flex; justify-content:space-between; align-items:start; margin-bottom:1.4rem; }
+label { display:block; margin:1rem 0 .4rem; color:#766c72; font-size:.75rem; font-weight:800; } label span { float:right; color:#b76838; font-weight:500; }
+input,.wysiwyg { width:100%; padding:.78rem .85rem; border:1px solid #e1d7d0; border-radius:10px; background:#fffdfb; font:inherit; } input:focus,.wysiwyg:focus { outline:0; border-color:#b76838; box-shadow:0 0 0 3px #b7683825; }
+.wysiwyg { min-height:10rem; line-height:1.55; }
+.primary { padding:.85rem 1.15rem; border:0; border-radius:10px; background:#2c2630; color:white; font-weight:800; cursor:pointer; } .primary:hover { background:#b76838; } .wide { width:100%; margin-top:1.3rem; } .text-button { border:0; background:none; color:#a45f38; cursor:pointer; }
+.fashion-row { display:flex; align-items:center; gap:1rem; padding:.9rem 0; border-top:1px solid #eadfd9; } .fashion-row img { width:64px; height:64px; border-radius:10px; object-fit:cover; background:#eee5df; } .row-copy { flex:1; min-width:0; } .row-copy span,.row-copy small { color:#8b8084; font-size:.72rem; } .row-copy h3 { margin:.25rem 0; overflow:hidden; font:600 1rem Georgia,serif; text-overflow:ellipsis; white-space:nowrap; } .row-actions { display:flex; gap:.45rem; } .row-actions button { padding:.45rem .65rem; border:1px solid #d9c9c0; border-radius:7px; background:#fff; cursor:pointer; } .row-actions .danger { color:#a62d35; }
+.notice { padding:.8rem 1rem; border-radius:9px; } .error { color:#a62d35; background:#feecef; } .success { color:#216345; background:#e9f7ef; } .empty { color:#8b8084; text-align:center; padding:2rem; }
+@media (max-width:800px) { .admin-hero { align-items:start; flex-direction:column; } .admin-layout { grid-template-columns:1fr; } }

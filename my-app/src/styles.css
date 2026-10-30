@@ -1,0 +1,16 @@
+/* Shared page defaults keep the navigation and routed views aligned. */
+html,
+body {
+	min-height: 100%;
+	margin: 0;
+}
+
+body {
+	background: #f8fafc;
+	color: #0f172a;
+	font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}

@@ -1,0 +1,45 @@
+<section class="admin-page">
+  <header class="admin-hero">
+    <div>
+      <p class="eyebrow">FASHIONDATA / ADMIN</p>
+      <h1>Curate the collection</h1>
+      <p>Manage every style in one place. Changes are saved directly to MongoDB.</p>
+    </div>
+    <button class="primary" type="button" (click)="newFashion()">+ Add fashion</button>
+  </header>
+
+  @if (errorMessage()) { <p class="notice error">{{ errorMessage() }}</p> }
+  @if (successMessage()) { <p class="notice success">{{ successMessage() }}</p> }
+
+  <div class="admin-layout">
+    <section class="panel form-panel">
+      <div class="panel-heading">
+        <div><p class="eyebrow">{{ editingId ? 'EDIT STYLE' : 'NEW STYLE' }}</p><h2>{{ editingId ? 'Update fashion' : 'Add a fashion' }}</h2></div>
+        @if (editingId) { <button class="text-button" type="button" (click)="newFashion()">Clear</button> }
+      </div>
+      <form (submit)="$event.preventDefault(); save()">
+        <label for="style">Style</label>
+        <input id="style" name="style" [(ngModel)]="form.style" required placeholder="Street style">
+        <label for="subject">Fashion title</label>
+        <input id="subject" name="subject" [(ngModel)]="form.fashion_subject" required placeholder="A short, memorable title">
+        <label for="image">Thumbnail URL</label>
+        <input id="image" name="image" [(ngModel)]="form.fashion_image" required placeholder="https://...">
+        <label for="detail">Details <span>HTML supported</span></label>
+        <div id="detail" class="wysiwyg" contenteditable="true" role="textbox" aria-label="Fashion details"
+             [innerHTML]="form.fashion_detail" (input)="updateDetail($event)"></div>
+        <button class="primary wide" type="submit">{{ editingId ? 'Save changes' : 'Create fashion' }}</button>
+      </form>
+    </section>
+
+    <section class="panel list-panel">
+      <div class="panel-heading"><div><p class="eyebrow">COLLECTION</p><h2>{{ fashions().length }} fashions</h2></div></div>
+      @for (fashion of fashions(); track fashion._id) {
+        <article class="fashion-row">
+          <img [src]="fashion.fashion_image" [alt]="fashion.fashion_subject">
+          <div class="row-copy"><span>{{ fashion.style }}</span><h3>{{ fashion.fashion_subject }}</h3><small>{{ fashion.creation_date | date:'mediumDate' }}</small></div>
+          <div class="row-actions"><button type="button" (click)="edit(fashion)">Edit</button><button class="danger" type="button" (click)="remove(fashion)">Delete</button></div>
+        </article>
+      } @empty { <p class="empty">No fashions yet. Add the first style.</p> }
+    </section>
+  </div>
+</section>

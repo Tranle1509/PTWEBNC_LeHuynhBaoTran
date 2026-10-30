@@ -1,0 +1,18 @@
+.mau_do
+{color:red;
+}
+.nen_xanh
+{background-color:blue;
+}
+/* Class applied when button is active */
+.btn-active {
+    background-color: #f0f0f0;
+    border-color: red;
+}
+
+/* Class applied when saved successfully */
+.btn-saved {
+    background-color: green;
+    color: white;
+    border-color: darkgreen;
+}

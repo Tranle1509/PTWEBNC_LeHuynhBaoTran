@@ -1,0 +1,32 @@
+[
+  {
+    "BookId": "b1",
+    "BookName": "Basic Programming Techniques",
+    "Price": 70,
+    "Image": "b1.png"
+  },
+  {
+    "BookId": "b2",
+    "BookName": "Advanced Programming Techniques",
+    "Price": 100,
+    "Image": "b2.png"
+  },
+  {
+    "BookId": "b3",
+    "BookName": "Introduction to Machine Learning",
+    "Price": 200,
+    "Image": "b3.png"
+  },
+  {
+    "BookId": "b4",
+    "BookName": "Advanced Machine Learning",
+    "Price": 300,
+    "Image": "b4.png"
+  },
+  {
+    "BookId": "b5",
+    "BookName": "Basic Robot Programming",
+    "Price": 250,
+    "Image": "b5.png"
+  }
+]

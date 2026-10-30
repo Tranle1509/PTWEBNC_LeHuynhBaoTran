@@ -1,0 +1,30 @@
+<section class="book-detail">
+  <h2>Book Detail</h2>
+  <form class="search-row" (submit)="$event.preventDefault(); searchBook(bookId.value)">
+    <label for="book-id">Book Id:</label>
+    <input id="book-id" type="text" value="b5" #bookId autocomplete="off">
+    <button type="submit">Search</button>
+  </form>
+
+  @if (errMessage()) {
+    <p class="error">{{ errMessage() }}</p>
+  }
+
+  @if (book(); as selectedBook) {
+    <table>
+      <tbody>
+        <tr><th>Book Id:</th><td>{{ selectedBook.BookId }}</td></tr>
+        <tr><th>Book Name:</th><td>{{ selectedBook.BookName }}</td></tr>
+        <tr><th>Price:</th><td>{{ selectedBook.Price }}</td></tr>
+        <tr>
+          <th>Image:</th>
+          <td><img [src]="server_images_link + '/' + selectedBook.Image" [alt]="selectedBook.BookName"></td>
+        </tr>
+      </tbody>
+    </table>
+  } @else if (!errMessage()) {
+    <p class="empty-state">Enter a Book ID to view its information.</p>
+  }
+</section>
+
+

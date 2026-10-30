@@ -1,0 +1,18 @@
+<section class="fashion-detail">
+  <a class="back-link" routerLink="/fashion">← Back to collection</a>
+  @if (errMessage()) { <p class="error">{{ errMessage() }}</p> }
+  @if (fashion(); as item) {
+    <div class="detail-layout">
+      <div class="image-panel">
+        <img class="fashion-image" [src]="item.fashion_image || '/images/fashion-street.svg'" [alt]="item.fashion_subject">
+      </div>
+      <article class="detail-copy">
+        <span class="eyebrow">{{ item.style || 'FASHION' }} · LOOK #{{ item.IdF }}</span>
+        <h1>{{ item.fashion_subject }}</h1>
+        <div class="rule"></div>
+        <div class="description" [innerHTML]="item.fashion_detail"></div>
+        <p class="slug">Collection reference: {{ item.slug }}</p>
+      </article>
+    </div>
+  }
+</section>

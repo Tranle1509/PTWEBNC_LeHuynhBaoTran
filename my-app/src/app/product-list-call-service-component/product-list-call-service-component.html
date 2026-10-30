@@ -1,0 +1,41 @@
+<p>product-list-component works!</p>
+min price: <input type="number" [(ngModel)]="min_price" />
+max price: <input type="number" [(ngModel)]="max_price" />
+<button (click)="callFilterProductsByPrice()">Filler Products</button>
+<table border="1">
+    <thead>
+
+    <tr>
+        <th> ID </th>
+        <th> Name </th>
+        <th> Price </th>
+        <th> Description </th>
+        <th> Image </th>
+    </tr>
+    </thead>
+    <tbody>
+    <p>way 1</p>
+    <tr *ngFor="let product of products">
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.description}}</td>
+        <td><img [src]="product.image_link" [alt]="product.name" width="100"></td>
+        
+    </tr>
+    <p>way 2</p>
+    @for (product of products; track product.id) {
+        <tr [class.invalid-product]="product.price < 0">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.description}}</td>
+            <td><img [src]="product.image_link" [alt]="product.name" height="100" width="100"></td>
+        </tr>
+    } @empty {
+        <tr>
+            <td colspan="5">No products available.</td>
+        </tr>
+    }
+    </tbody>
+</table>

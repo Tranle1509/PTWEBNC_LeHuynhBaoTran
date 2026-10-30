@@ -1,0 +1,39 @@
+<div style="padding: 16px;">
+  <h2>Exercise 18: Json Array Model – Group Customers (*)</h2>
+
+  <div *ngIf="errMessage" style="color: red; margin-bottom: 10px;">
+    {{ errMessage }}
+  </div>
+
+  <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; min-width: 650px; text-align: center;">
+    <thead>
+      <tr style="background-color: #f2f2f2;">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let group of customerGroups">
+        <!-- Hàng hiển thị nhóm khách hàng -->
+        <tr style="background-color: #f7f7f7; text-align: left; font-weight: bold;">
+          <td colspan="5">
+            {{ group.CustomerTypeId }} - {{ group.CustomerTypeName || group.CustomterTypeName }}
+          </td>
+        </tr>
+        <!-- Danh sách khách hàng trong nhóm -->
+        <tr *ngFor="let cus of group.Customers">
+          <td>{{ cus.Id }}</td>
+          <td>{{ cus.Name }}</td>
+          <td>{{ cus.Email }}</td>
+          <td>{{ cus.Age }}</td>
+          <td>
+            <img [src]="cus.Image" width="70" height="70" style="object-fit: cover; border-radius: 4px;" [alt]="cus.Name" />
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

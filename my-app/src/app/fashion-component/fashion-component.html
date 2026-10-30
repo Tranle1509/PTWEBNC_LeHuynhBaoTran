@@ -1,0 +1,33 @@
+<section class="fashion-page">
+  <header class="fashion-hero">
+    <div>
+      <p class="eyebrow">THE EDIT / FASHIONDATA</p>
+      <h1>Wear your <em>story.</em></h1>
+      <p>Explore considered looks, details and everyday inspiration from our collection.</p>
+    </div>
+    <span class="hero-symbol" aria-hidden="true">✦</span>
+  </header>
+  <form class="search-bar" (submit)="$event.preventDefault(); search()">
+    <label class="sr-only" for="fashion-search">Search fashion</label>
+    <input id="fashion-search" name="query" [(ngModel)]="query" placeholder="Nhập mã sản phẩm hoặc tên thời trang">
+    <button type="submit">Search <span>→</span></button>
+  </form>
+  @if (errMessage()) { <p class="message error">{{ errMessage() }}</p> }
+@if (searched && fashions().length === 0 && !errMessage()) {
+  <p class="message">No matching style found. Try another search.</p>
+}
+  <div class="section-heading"><span>CURATED COLLECTION</span><strong>{{ fashions().length }} styles</strong></div>
+  <div class="fashion-grid">
+    @for (item of fashions(); track item._id) {
+      <a class="fashion-card" [routerLink]="['/fashion-detail', item.slug || item._id]">
+        <div class="image-wrap"><img [src]="item.fashion_image || '/images/fashion-street.svg'" [alt]="item.fashion_subject"></div>
+        <div class="card-copy">
+          <span class="style">MÃ #{{ item.IdF }} · {{ item.style || 'Fashion' }}</span>
+          <h2>{{ item.fashion_subject }}</h2>
+          <p>{{ item.fashion_detail }}</p>
+          <span class="view-link">Explore look ↗</span>
+        </div>
+      </a>
+    }
+  </div>
+</section>

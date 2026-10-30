@@ -1,0 +1,14 @@
+:host { display: block; background: #f7f5f0; min-height: 100vh; color: #24211f; }
+.fashion-detail { max-width: 1180px; margin: auto; padding: 2rem 1.5rem 5rem; }
+.back-link { color: #8b5e3c; text-decoration: none; font-weight: 700; }
+.detail-layout { display: grid; gap: clamp(2rem, 7vw, 7rem); grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr); margin-top: 2rem; align-items: center; }
+.image-panel { background: #e9e2d9; max-height: 720px; overflow: hidden; }
+.fashion-image { display: block; height: min(72vh, 720px); object-fit: cover; width: 100%; }
+.detail-copy { padding-right: 1rem; }
+.eyebrow { color: #8b5e3c; font-size: .75rem; font-weight: 700; letter-spacing: .15em; }
+h1 { font: 500 clamp(2.7rem, 6vw, 5.5rem)/1 Georgia, serif; margin: 1.2rem 0; }
+.rule { background: #b06b4c; height: 2px; margin: 2rem 0; width: 4rem; }
+.description { color: #645d57; font-size: 1.1rem; line-height: 1.8; }
+.slug { border-top: 1px solid #ded8d0; color: #9a918a; font-size: .78rem; margin-top: 3rem; padding-top: 1rem; word-break: break-word; }
+.error { margin: 2rem 0; }
+@media (max-width: 700px) { .detail-layout { grid-template-columns: 1fr; } .fashion-image { height: 55vh; } }

@@ -1,0 +1,15 @@
+node_modules/
+.angular/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+my-app/.cache/
+my-app/.sass-cache/
+my-app/.git-local-backup/
+my-server-mongodb/.cache/

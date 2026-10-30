@@ -1,0 +1,16 @@
+/* Container defining the track */
+.progress-bar-container {
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+/* Styles applied to the inner div */
+.progress-bar {
+  height: 100%;
+  /* Smooth transition for both width and color changes */
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
